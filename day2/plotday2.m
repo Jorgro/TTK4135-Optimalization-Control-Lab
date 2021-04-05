@@ -62,78 +62,76 @@ t = load('/Users/jorgenr/Lab/LAB/LAB/day2/t2.mat').t;
 %% Plot control
 figure(1)
 % Plot optimal (open-loop) control pitch
-stairs(t, u_opt_1)
+stairs(t, u_opt_1, 'r')
 title('Optimal pitch control for different $q$', 'interpreter', 'latex')
 hold on
 
-stairs(t, u_opt_2)
-stairs(t, u_opt_3)
+stairs(t, u_opt_2, 'b')
+stairs(t, u_opt_3, 'g')
 hold off
 grid
-ylim([-1 1])
 xlim([0 20])
-ylabel('Pitch reference [rad]')
-xlabel('Time [s]')
+ylabel('Pitch reference [rad]', 'interpreter', 'latex')
+xlabel('Time [s]', 'interpreter', 'latex')
 legend('$p_c^*$, $q = 0.1$','$p_c^*$, $q = 1$','$p_c^*$, $q = 10$', 'interpreter', 'latex')
 
 %% Plot travel and travel rate model vs. reality
 figure(2)
 
 % Travel
-plot(t,x1_1,'--',travel_1(1,:),travel_1(2,:))
+plot(t,x1_1,'--r',travel_1(1,:),travel_1(2,:),'-r')
 title('Travel for different $q$', 'interpreter', 'latex')
 grid
 hold on
-plot(t,x1_2,'--',travel_2(1,:),travel_2(2,:))
-plot(t,x1_3,'--',travel_3(1,:),travel_3(2,:))
+plot(t,x1_2,'--b',travel_2(1,:),travel_2(2,:),'-b')
+plot(t,x1_3,'--g',travel_3(1,:),travel_3(2,:),'-g')
 xlim([0 20])
 legend('$\lambda^*$, $q=0.1$','$\lambda$, $q=0.1$','$\lambda^*$, $q=1$','$\lambda$, $q = 1$', '$\lambda^*$, $q=10$','$\lambda$, $q = 10$', 'interpreter', 'latex')
 ylabel('Travel [rad]', 'interpreter', 'latex');
-xlabel('Time [s]')
+xlabel('Time [s]', 'interpreter', 'latex')
 
 % Travel rate
 figure(3)
-plot(t,x2_1,'--',travel_rate_1(1,:),travel_rate_1(2,:))
+plot(t,x2_1,'--r',travel_rate_1(1,:),travel_rate_1(2,:),'-r')
 title('Travel rate for different $q$', 'interpreter', 'latex')
 
 grid
 hold on
-plot(t,x2_2,'--',travel_rate_2(1,:),travel_rate_2(2,:))
-plot(t,x2_3,'--',travel_rate_3(1,:),travel_rate_3(2,:))
+plot(t,x2_2,'--b',travel_rate_2(1,:),travel_rate_2(2,:),'-b')
+plot(t,x2_3,'--g',travel_rate_3(1,:),travel_rate_3(2,:),'-g')
 hold off
 xlim([0 20])
-legend('$r^*$, $Q=[80,5,20,1], R=0.5$','$r$, $Q=[80,5,20,1], R=0.5$','$r^*$, $Q=[1,1,1,1], R=1$','$r$, $Q=[1,1,1,1], R=1$', 'interpreter', 'latex')
+legend('$r^*$, $q = 0.1$','$r$, $q = 0.1$','$r^*$, $q = 1$','$r$, $q = 1$','$r^*$, $r = 10$','$r$, $q = 10$', 'interpreter', 'latex')
 ylabel('Travel rate [rad/s]', 'interpreter', 'latex');
-xlabel('Time [s]')
+xlabel('Time [s]', 'interpreter', 'latex')
 
 %% Plot pitch and pitch rate model vs. reality
 figure(4)
 
 % Pitch
-plot(t,x3_1,'--',pitch_1(1,:),pitch_1(3,:))
+plot(t,x3_1,'--r',pitch_1(1,:),pitch_1(3,:),'-r')
 title('Pitch for different $q$', 'interpreter', 'latex')
-
 grid
 hold on
-plot(t,x3_2,'--',pitch_2(1,:),pitch_2(3,:))
-plot(t,x3_3,'--',pitch_3(1,:),pitch_3(3,:))
+plot(t,x3_2,'--b',pitch_2(1,:),pitch_2(3,:),'-b')
+plot(t,x3_3,'--g',pitch_3(1,:),pitch_3(3,:),'-g')
 xlim([0 20])
-legend('$p^*$, $Q=[80,5,20,1], R=0.5$','$p$, $Q=[80,5,20,1], R=0.5$','$p^*$, $Q=[1,1,1,1], R=1$','$p$, $Q=[1,1,1,1], R=1$', 'interpreter', 'latex')
+legend('$p^*$, $q = 0.1$','$p$, $q = 0.1$','$p^*$, $q = 1$','$p$, $q = 1$','$p^*$, $q = 10$','$p$, $q = 10$', 'interpreter', 'latex')
 ylabel('Pitch [rad]', 'interpreter', 'latex');
-xlabel('Time [s]')
+xlabel('Time [s]', 'interpreter', 'latex')
 
 % Pitch rate
 figure(5)
-plot(t,x4_1,'--',pitch_rate_1(1,:),pitch_rate_1(2,:))
-plot(t,x4_2,'--',pitch_rate_2(1,:),pitch_rate_2(2,:))
-plot(t,x4_3,'--',pitch_rate_3(1,:),pitch_rate_3(2,:))
+plot(t,x4_1,'--r',pitch_rate_1(1,:),pitch_rate_1(2,:),'-r')
+hold on
+plot(t,x4_2,'--b',pitch_rate_2(1,:),pitch_rate_2(2,:),'-b')
+plot(t,x4_3,'--g',pitch_rate_3(1,:),pitch_rate_3(2,:),'-g')
 title('Pitch rate for different $q$', 'interpreter', 'latex')
 grid
-hold on
 xlim([0 20])
-legend('$\dot{p}^*$, $Q=[80,5,20,1], R=0.5$','$\dot{p}$, $Q=[80,5,20,1], R=0.5$','$\dot{p}^*$, $Q=[1,1,1,1], R=1$','$\dot{p}$, $Q=[1,1,1,1], R=1$', 'interpreter', 'latex')
+legend('$\dot{p}^*$, $q = 0.1$','$\dot{p}$, $q = 1$','$\dot{p}^*$, $q = 1$','$\dot{p}$, $q = 1$','$\dot{p}^*$, $q = 10$','$\dot{p}$, $q = 10$', 'interpreter', 'latex')
 ylabel('Pitch rate [rad/s]', 'interpreter', 'latex');
-xlabel('Time [s]')
+xlabel('Time [s]', 'interpreter', 'latex')
 
 
 

@@ -58,12 +58,11 @@ stairs(u_opt1_2.Time, u_opt1_2.Data)
 plot(pitch_control_2(1,:), pitch_control_2(2,:))
 hold off
 grid
-ylim([-1 1])
 xlim([0 20])
 ylabel('Pitch reference [rad]')
 xlabel('Time [s]')
 legend('$p_c^*, p_1 = p_2 = 1$','$p_c, p_1 = p_2 = 1$','$p_c^*, p_1 = p_2 = 2$','$p_c, p_1 = p_2 = 2$', 'interpreter', 'latex')
-
+saveas(gcf,'./figures/pitch_control.png')
 % Plot optimal (open-loop) control elevation
 figure(2)
 stairs(u_opt2_1.Time, u_opt2_1.Data)
@@ -75,12 +74,11 @@ stairs(u_opt2_2.Time, u_opt2_2.Data)
 plot(elevation_control_2(1,:), elevation_control_2(2,:))
 hold off
 grid
-ylim([-1 1])
 xlim([0 20])
 ylabel('Elevation reference [rad]')
 xlabel('Time [s]')
 legend('$e_c^*, p_1 = p_2 = 1$','$e_c, p_1 = p_2 = 1$','$e_c^*, p_1 = p_2 = 2$','$e_c, p_1 = p_2 = 2$', 'interpreter', 'latex')
-
+saveas(gcf,'./figures/elevation_control.png')
 %% Plot travel and travel rate model vs. reality
 figure(3)
 
@@ -94,7 +92,7 @@ xlim([0 20])
 legend('$\lambda^*, p_1 = p_2 = 1$','$\lambda, p_1 = p_2 = 1$','$\lambda^*, p_1 = p_2 = 2$','$\lambda, p_1 = p_2 = 2$','interpreter', 'latex')
 ylabel('Travel [rad]', 'interpreter', 'latex');
 xlabel('Time [s]')
-
+saveas(gcf,'./figures/travel.png')
 % Travel rate
 figure(4)
 plot(t,x2_1,'--',time_states_1,travel_rate_1)
@@ -106,7 +104,7 @@ xlim([0 20])
 legend('$r^*, p_1 = p_2 = 1$','$r, p_1 = p_2 = 1$', '$r^*, p_1 = p_2 = 2$','$r, p_1 = p_2 = 2$', 'interpreter', 'latex')
 ylabel('Travel rate [rad/s]', 'interpreter', 'latex');
 xlabel('Time [s]')
-
+saveas(gcf,'./figures/travel_rate.png')
 %% Plot pitch and pitch rate model vs. reality
 figure(5)
 
@@ -119,7 +117,7 @@ plot(t,x3_2,'--',time_states_2,pitch_2)
 legend('$p^*, p_1 = p_2 = 1$','$p, p_1 = p_2 = 1$','$p^*, p_1 = p_2 = 2$','$p, p_1 = p_2 = 2$','interpreter', 'latex')
 ylabel('Pitch [rad]', 'interpreter', 'latex');
 xlabel('Time [s]')
-
+saveas(gcf,'./figures/pitch.png')
 % Pitch rate
 figure(6)
 plot(t,x4_1,'--',time_states_1,pitch_rate_1)
@@ -131,7 +129,7 @@ xlim([0 20])
 legend('$\dot{p}^*, p_1 = p_2 = 1$','$\dot{p}, p_1 = p_2 = 1$', '$\dot{p}^*, p_1 = p_2 = 2$','$\dot{p}, p_1 = p_2 = 2$', 'interpreter', 'latex')
 ylabel('Pitch rate [rad/s]', 'interpreter', 'latex');
 xlabel('Time [s]')
-
+saveas(gcf,'./figures/pitch_rate.png')
 %% Plot elevation and elevation rate model vs. reality
 figure(7)
 
@@ -145,7 +143,7 @@ xlim([0 20])
 legend('$e^*, p_1 = p_2 = 1$','$e, p_1 = p_2 = 1$','$e^*, p_1 = p_2 = 2$','$e, p_1 = p_2 = 2$','interpreter', 'latex')
 ylabel('Elevation [rad]', 'interpreter', 'latex');
 xlabel('Time [s]')
-
+saveas(gcf,'./figures/elevation.png')
 % Elevation rate
 figure(8)
 plot(t,x6_1,'--',time_states_1,elevation_rate_1)
@@ -157,3 +155,4 @@ xlim([0 20])
 legend('$\dot{e}^*, p_1 = p_2 = 1$','$\dot{e}, p_1 = p_2 = 1$', '$\dot{e}^*, p_1 = p_2 = 2$','$\dot{e}, p_1 = p_2 = 2$', 'interpreter', 'latex')
 ylabel('Elevation rate [rad/s]', 'interpreter', 'latex');
 xlabel('Time [s]')
+saveas(gcf,'./figures/elevation_rate.png')
